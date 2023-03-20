@@ -58,12 +58,15 @@ function configure_apple_framework {
     build_cli_tools="false"
   fi
 
+  echo "TEST"
+  exit 1
+
   cmake -S . -B "build_$1" -G "$BUILD_SYSTEM" \
     -DHERMES_APPLE_TARGET_PLATFORM:STRING="$1" \
     -DCMAKE_OSX_ARCHITECTURES:STRING="$2" \
     -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING="$3" \
     -DHERMES_ENABLE_DEBUGGER:BOOLEAN=true \
-    -DHERMES_ENABLE_INTL:BOOLEAN=true \
+    -DHERMES_ENABLE_INTL:BOOLEAN=false \
     -DHERMES_ENABLE_LIBFUZZER:BOOLEAN=false \
     -DHERMES_ENABLE_FUZZILLI:BOOLEAN=false \
     -DHERMES_ENABLE_TEST_SUITE:BOOLEAN=false \
